@@ -267,7 +267,7 @@ body {
   width: 32px;
   height: 32px;
   transform: translate(-50%, -50%);
-  cursor: none;
+  cursor: pointer;
   z-index: 20;
 }
 
@@ -334,13 +334,20 @@ body {
 
 .tc-close {
   position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 18px;
+  top: 8px;
+  right: 12px;
+  font-size: 22px;
   color: var(--text-muted);
-  cursor: none;
+  cursor: pointer;
   line-height: 1;
   transition: color 0.2s;
+  padding: 8px;
+  /* large tap target */
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tc-close:hover {
@@ -627,7 +634,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: background 0.35s;
-  cursor: none;
+  cursor: default;
 }
 
 .comp-card::after {
@@ -874,50 +881,161 @@ body {
 }
 
 /* =============================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: clamp(64px, 8vw, 110px);
+  }
+
+  .about-title,
+  .comp-title,
+  .specs-title {
+    font-size: clamp(36px, 5vw, 60px);
+  }
+
+  .comp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .comp-card:nth-child(3n) .comp-line {
+    display: block;
+  }
+
+  .comp-card:nth-child(2n) .comp-line {
+    display: none;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — SMALL TABLET / LARGE PHONE (≤ 900px)
    ============================================= */
 @media (max-width: 900px) {
+
+  /* — Hero — */
   .hero {
-    padding: 0 6vw;
+    padding: 0 5vw;
+    min-height: auto;
+  }
+
+  .hero-tag {
+    font-size: 10px;
+    padding-top: 20px;
   }
 
   .hero-main {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 28px;
+    padding: 24px 0 0;
+  }
+
+  .hero-content {
+    order: 1;
   }
 
   .hero-img-wrap {
-    padding: 0 0 40px;
+    order: 2;
+    padding: 0 0 8px;
   }
 
   .hero-title {
-    font-size: clamp(64px, 15vw, 100px);
+    font-size: clamp(56px, 13vw, 96px);
+  }
+
+  .hero-meta {
+    margin-top: 28px;
+    flex-wrap: wrap;
+    gap: 8px 0;
+  }
+
+  .meta-item {
+    padding: 0 20px 0 0;
+  }
+
+  .meta-divider {
+    margin-right: 20px;
   }
 
   .scroll-hint {
     display: none;
   }
 
+  /* — Image frame — */
+  .img-frame {
+    max-width: 100%;
+    aspect-ratio: 4/5;
+  }
+
+  /* — Tooltip: slide up from bottom on mobile — */
+  .tooltip-card {
+    right: 0;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    transform: translateY(110%);
+    border-top: 2px solid var(--accent);
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding: 24px 5vw 32px;
+  }
+
+  .tooltip-card.active {
+    transform: translateY(0);
+  }
+
+  /* — About — */
   .about {
     grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 80px 6vw;
+    gap: 40px;
+    padding: 72px 5vw;
+  }
+
+  .about-text {
+    max-width: 100%;
   }
 
   .about-right {
     grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .stat-num {
+    font-size: 40px;
+  }
+
+  .stat-block {
+    padding: 24px 20px;
+  }
+
+  /* — Components — */
+  .components {
+    padding: 72px 5vw;
+  }
+
+  .comp-header {
+    margin-bottom: 40px;
   }
 
   .comp-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2px;
   }
 
-  .comp-card:nth-child(2n) .comp-line {
-    display: none;
+  .comp-card {
+    padding: 28px 20px;
+    cursor: pointer;
   }
 
-  .comp-card:nth-child(3n) .comp-line {
-    display: block;
+  .comp-card:nth-child(2n) .comp-line { display: none; }
+  .comp-card:nth-child(3n) .comp-line { display: block; }
+  .comp-card:nth-child(odd):last-child { grid-column: 1 / -1; }
+
+  /* — Specs — */
+  .specs {
+    padding: 72px 5vw;
   }
 
   .specs-inner {
@@ -926,36 +1044,247 @@ body {
 
   .spec-row {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: 4px;
+    padding: 16px 0;
+  }
+
+  .spec-param {
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  .spec-val {
+    font-size: 12px;
+    padding-left: 4px;
+  }
+
+  /* — Footer — */
+  .footer {
+    padding: 48px 5vw 32px;
   }
 
   .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
   }
 
-  .tooltip-card {
-    right: 16px;
-    width: 240px;
-    padding: 20px;
+  .footer-left {
+    grid-column: 1 / -1;
   }
 }
 
+/* =============================================
+   RESPONSIVE — PHONE (≤ 600px)
+   ============================================= */
 @media (max-width: 600px) {
+
+  /* — Hero — */
+  .hero {
+    padding: 0 4vw;
+  }
+
+  .hero-tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+
+  .hero-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-meta {
+    gap: 6px 0;
+    margin-top: 20px;
+  }
+
+  .meta-text {
+    font-size: 9px;
+  }
+
+  .meta-item {
+    padding-right: 14px;
+  }
+
+  .meta-divider {
+    margin-right: 14px;
+    height: 28px;
+  }
+
+  /* — Image — */
+  .img-frame {
+    aspect-ratio: 3/4;
+  }
+
+  .img-corner {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Hotspot dots slightly bigger for finger taps */
+  .hotspot {
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+  }
+
+  .hs-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .hs-ring {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* — About — */
+  .about {
+    padding: 56px 4vw;
+    gap: 32px;
+  }
+
+  .about-title {
+    font-size: clamp(32px, 9vw, 52px);
+  }
+
+  .about-text {
+    font-size: 12px;
+  }
+
+  .about-right {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-num {
+    font-size: 34px;
+  }
+
+  .stat-block {
+    padding: 20px 14px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+  }
+
+  .cta-btn {
+    padding: 12px 20px;
+    font-size: 10px;
+  }
+
+  /* — Components — */
+  .components {
+    padding: 56px 4vw;
+  }
+
   .comp-grid {
     grid-template-columns: 1fr;
   }
 
-  .comp-line {
-    display: none;
+  .comp-line { display: none !important; }
+
+  .comp-card {
+    padding: 28px 20px;
+    cursor: pointer;
+  }
+
+  .comp-card:nth-child(odd):last-child {
+    grid-column: auto;
+  }
+
+  /* — Specs — */
+  .specs {
+    padding: 56px 4vw;
+  }
+
+  .specs-title {
+    font-size: clamp(32px, 9vw, 52px);
+    margin-bottom: 36px;
+  }
+
+  /* — Footer — */
+  .footer {
+    padding: 40px 4vw 28px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-title {
+    font-size: 44px;
+  }
+
+  .footer-year {
+    font-size: 26px;
+  }
+
+  .footer-copy {
+    font-size: 9px;
+  }
+
+  /* — Section labels — */
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — TINY PHONE (≤ 380px)
+   ============================================= */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: clamp(42px, 13vw, 64px);
   }
 
   .about-right {
     grid-template-columns: 1fr;
   }
 
-  .hero-meta {
-    flex-wrap: wrap;
-    gap: 12px;
+  .stat-num {
+    font-size: 38px;
+  }
+}
+
+/* =============================================
+   TOUCH DEVICE — remove hover-only effects
+   ============================================= */
+@media (hover: none) {
+  .comp-card:hover {
+    background: var(--surface);
+  }
+
+  .comp-card:hover::after {
+    width: 0;
+  }
+
+  .comp-card:hover .comp-icon {
+    color: var(--text-muted);
+  }
+
+  .spec-row:hover::before {
+    transform: scaleX(0);
+  }
+
+  .hero-img-wrap:hover .hero-img {
+    filter: contrast(1.08) brightness(0.9) saturate(0.7);
+  }
+
+  /* Tap feedback instead */
+  .comp-card:active {
+    background: #1c1c1c;
+  }
+
+  .hotspot:active .hs-dot {
+    transform: translate(-50%, -50%) scale(1.8);
+    box-shadow: 0 0 24px var(--accent);
   }
 }
