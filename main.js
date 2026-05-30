@@ -184,11 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ——————————————————————————————
      SUBTLE PARALLAX ON HERO IMAGE
+     (desktop / mouse only)
   —————————————————————————————— */
   const heroImg = document.querySelector('.hero-img');
-  const imgFrame = document.querySelector('.img-frame');
+  const isTouch = window.matchMedia('(hover: none)').matches;
 
-  if (heroImg) {
+  if (heroImg && !isTouch) {
     let ticking = false;
     document.addEventListener('mousemove', (e) => {
       if (ticking) return;
@@ -203,6 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* Ensure hotspots respond instantly to taps */
+  document.querySelectorAll('.hotspot').forEach(hs => {
+    hs.style.touchAction = 'manipulation';
+  });
 
   /* ——————————————————————————————
      COMP CARD STAGGER
