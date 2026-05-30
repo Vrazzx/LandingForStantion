@@ -5,37 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ——————————————————————————————
-     CUSTOM CURSOR
-  —————————————————————————————— */
-  const cursor = document.getElementById('cursor');
-  const cursorDot = document.getElementById('cursorDot');
-  let mouseX = 0, mouseY = 0;
-  let cursorX = 0, cursorY = 0;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorDot.style.left = e.clientX + 'px';
-    cursorDot.style.top = e.clientY + 'px';
-  });
-
-  const lerp = (a, b, t) => a + (b - a) * t;
-
-  const animateCursor = () => {
-    cursorX = lerp(cursorX, mouseX, 0.12);
-    cursorY = lerp(cursorY, mouseY, 0.12);
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    requestAnimationFrame(animateCursor);
-  };
-  animateCursor();
-
-  document.querySelectorAll('a, button, .hotspot, .comp-card, .spec-row, .tc-close, .cta-btn').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-  });
-
-  /* ——————————————————————————————
      HERO TEXT REVEAL
   —————————————————————————————— */
   const lines = document.querySelectorAll('.line-inner');
@@ -137,6 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeCard();
   });
+
+  window.addEventListener('scroll', () => {
+    if (activeHotspot !== null) closeCard();
+  }, { passive: true });
 
   function closeCard() {
     card.classList.remove('active');

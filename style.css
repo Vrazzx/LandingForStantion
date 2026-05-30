@@ -30,43 +30,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--mono);
-  cursor: none;
   overflow-x: hidden;
-}
-
-/* =============================================
-   CUSTOM CURSOR
-   ============================================= */
-.cursor {
-  position: fixed;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s, height 0.25s, border-color 0.2s, background 0.2s;
-  mix-blend-mode: difference;
-}
-
-.cursor-dot {
-  position: fixed;
-  width: 4px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s;
-}
-
-body.hovering .cursor {
-  width: 64px;
-  height: 64px;
-  background: rgba(200,240,64,0.08);
-  border-color: var(--accent2);
 }
 
 /* =============================================
