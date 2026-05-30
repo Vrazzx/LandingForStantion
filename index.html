@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>АС-1 — Автоматизированная Станция</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Unbounded:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- GRID LINES -->
+  <div class="grid-overlay"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <div class="hero-tag">ДИПЛОМНЫЙ ПРОЕКТ / 2025</div>
+    <div class="hero-main">
+    <div class="hero-content">
+      <div class="hero-label">АВТОМАТИЗИРОВАННАЯ</div>
+      <h1 class="hero-title">
+        <span class="line-wrap"><span class="line-inner" data-delay="0">СТАНЦИЯ</span></span>
+        <span class="line-wrap accent-line"><span class="line-inner" data-delay="80">МАРКИРОВКИ</span></span>
+        <span class="line-wrap"><span class="line-inner" data-delay="160">И КОНТРОЛЯ</span></span>
+      </h1>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <span class="meta-num">01</span>
+          <span class="meta-text">ОСЕВЫЕ<br>ДВИЖЕНИЯ</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-num">02</span>
+          <span class="meta-text">ЛАЗЕРНАЯ<br>МАРКИРОВКА</span>
+        </div>
+        <div class="meta-divider"></div>
+        <div class="meta-item">
+          <span class="meta-num">03</span>
+          <span class="meta-text">ПЛК<br>УПРАВЛЕНИЕ</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="img-frame">
+        <div class="img-scan"></div>
+        <img src="stantion.jpg" alt="Автоматизированная Станция" class="hero-img" id="stationImg"/>
+        <!-- HOTSPOTS -->
+        <div class="hotspot" id="hs1" style="top:5%;left:42%" data-node="1">
+          <div class="hs-ring"></div>
+          <div class="hs-dot"></div>
+        </div>
+        <div class="hotspot" id="hs2" style="top:28%;left:15%" data-node="2">
+          <div class="hs-ring"></div>
+          <div class="hs-dot"></div>
+        </div>
+        <div class="hotspot" id="hs3" style="top:50%;left:48%" data-node="3">
+          <div class="hs-ring"></div>
+          <div class="hs-dot"></div>
+        </div>
+        <div class="hotspot" id="hs4" style="top:72%;left:20%" data-node="4">
+          <div class="hs-ring"></div>
+          <div class="hs-dot"></div>
+        </div>
+        <div class="hotspot" id="hs5" style="top:78%;left:65%" data-node="5">
+          <div class="hs-ring"></div>
+          <div class="hs-dot"></div>
+        </div>
+      </div>
+      <div class="img-corner tl"></div>
+      <div class="img-corner tr"></div>
+      <div class="img-corner bl"></div>
+      <div class="img-corner br"></div>
+    </div>
+    </div><!-- /hero-main -->
+    <div class="scroll-hint">
+      <span>ПРОКРУТИТЬ</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TOOLTIP CARD -->
+  <div class="tooltip-card" id="tooltipCard">
+    <div class="tc-close" id="tcClose">&#215;</div>
+    <div class="tc-num" id="tcNum">01</div>
+    <div class="tc-title" id="tcTitle">Заголовок</div>
+    <div class="tc-desc" id="tcDesc">Описание компонента</div>
+    <div class="tc-specs" id="tcSpecs"></div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <div class="about-left">
+      <div class="section-label">О ПРОЕКТЕ</div>
+      <h2 class="about-title">Точность.<br>Автоматизация.<br>Результат.</h2>
+      <p class="about-text">
+        Данная установка представляет собой многофункциональную автоматизированную рабочую станцию, спроектированную для высокоточной маркировки, идентификации и контроля качества деталей в производственной среде.
+      </p>
+      <p class="about-text">
+        Алюминиевый профильный каркас, линейные направляющие и управление посредством ПЛК обеспечивают воспроизводимую точность операций при минимальном участии оператора.
+      </p>
+      <a href="#specs" class="cta-btn">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</a>
+    </div>
+    <div class="about-right">
+      <div class="stat-block" data-index="0">
+        <div class="stat-num" data-count="0.05">0</div>
+        <div class="stat-unit">мм</div>
+        <div class="stat-label">Точность позиционирования</div>
+      </div>
+      <div class="stat-block" data-index="1">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-unit">оси</div>
+        <div class="stat-label">Степеней свободы</div>
+      </div>
+      <div class="stat-block" data-index="2">
+        <div class="stat-num" data-count="24">0</div>
+        <div class="stat-unit">В</div>
+        <div class="stat-label">Рабочее напряжение</div>
+      </div>
+      <div class="stat-block" data-index="3">
+        <div class="stat-num" data-count="100">0</div>
+        <div class="stat-unit">%</div>
+        <div class="stat-label">Автономность цикла</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS SECTION -->
+  <section class="components" id="components">
+    <div class="comp-header">
+      <div class="section-label">СОСТАВНЫЕ ЧАСТИ</div>
+      <h2 class="comp-title">Архитектура<br>системы</h2>
+    </div>
+    <div class="comp-grid">
+
+      <div class="comp-card" data-comp="chain">
+        <div class="comp-index">01</div>
+        <div class="comp-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="24" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="24" y="24" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="40" y="24" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="18" y1="30" x2="24" y2="30" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="34" y1="30" x2="40" y2="30" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="comp-name">Кабель-носитель (цепь)</div>
+        <div class="comp-desc">Пластиковая кабеленесущая цепь (energy chain) направляет кабели и пневмошланги вдоль оси Z, исключая перекручивание при вертикальном перемещении каретки.</div>
+        <div class="comp-line"></div>
+      </div>
+
+      <div class="comp-card" data-comp="frame">
+        <div class="comp-index">02</div>
+        <div class="comp-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="40" height="40" rx="0" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="10" x2="50" y2="50" stroke="currentColor" stroke-width="1"/>
+            <line x1="50" y1="10" x2="10" y2="50" stroke="currentColor" stroke-width="1"/>
+            <rect x="6" y="6" width="8" height="8" rx="1" fill="currentColor" opacity="0.3"/>
+            <rect x="46" y="6" width="8" height="8" rx="1" fill="currentColor" opacity="0.3"/>
+            <rect x="6" y="46" width="8" height="8" rx="1" fill="currentColor" opacity="0.3"/>
+            <rect x="46" y="46" width="8" height="8" rx="1" fill="currentColor" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="comp-name">Алюминиевый профиль</div>
+        <div class="comp-desc">Основа конструкции — анодированный алюминиевый профиль серии 40x40 и 40x80. Обеспечивает жёсткость, модульность и возможность переконфигурации без сварки.</div>
+        <div class="comp-line"></div>
+      </div>
+
+      <div class="comp-card" data-comp="motor">
+        <div class="comp-index">03</div>
+        <div class="comp-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="18" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="8" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="30" cy="30" r="2" fill="currentColor"/>
+            <line x1="48" y1="30" x2="54" y2="30" stroke="currentColor" stroke-width="2"/>
+            <line x1="6" y1="30" x2="12" y2="30" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="comp-name">Серводвигатель / Мотор</div>
+        <div class="comp-desc">Шаговый или серво-привод обеспечивает точное угловое позиционирование. Механически связан с винтовой парой ШВП для преобразования вращения в линейное перемещение.</div>
+        <div class="comp-line"></div>
+      </div>
+
+      <div class="comp-card" data-comp="laser">
+        <div class="comp-index">04</div>
+        <div class="comp-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="22" y="8" width="16" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="30" y1="36" x2="30" y2="52" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2"/>
+            <line x1="24" y1="48" x2="36" y2="52" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <line x1="24" y1="52" x2="36" y2="48" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <circle cx="30" cy="52" r="3" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="comp-name">Лазерный маркиратор</div>
+        <div class="comp-desc">Компактный волоконный или CO2-лазер наносит несмываемую маркировку: серийные номера, QR-коды, логотипы. Управляется по интерфейсу RS-232 / USB от ПЛК-контроллера.</div>
+        <div class="comp-line"></div>
+      </div>
+
+      <div class="comp-card" data-comp="plc">
+        <div class="comp-index">05</div>
+        <div class="comp-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="16" width="44" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="16" y1="16" x2="16" y2="44" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <rect x="20" y="22" width="24" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+            <circle cx="12" cy="26" r="2" fill="currentColor" opacity="0.6"/>
+            <circle cx="12" cy="34" r="2" fill="currentColor" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="comp-name">ПЛК / Управляющий блок</div>
+        <div class="comp-desc">Программируемый логический контроллер (ПЛК) координирует все узлы станции: привод, маркиратор, датчики позиции. Программа записана на языке Ladder / ST по стандарту IEC 61131-3.</div>
+        <div class="comp-line"></div>
+      </div>
+
+      <div class="comp-card" data-comp="terminal">
+        <div class="comp-index">06</div>
+        <div class="comp-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="20" width="44" height="26" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="8" y1="30" x2="52" y2="30" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+            <line x1="12" y1="35" x2="24" y2="35" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="12" y1="40" x2="20" y2="40" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="40" cy="37" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="44" y1="41" x2="48" y2="45" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="comp-name">Клеммный блок / I/O</div>
+        <div class="comp-desc">DIN-рейка с клеммными блоками Phoenix Contact обеспечивает надёжное подключение всех датчиков, приводов и внешних устройств к контроллеру. Цветовая маркировка цепей упрощает диагностику.</div>
+        <div class="comp-line"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SPECS SECTION -->
+  <section class="specs" id="specs">
+    <div class="specs-bg-text">SPECS</div>
+    <div class="specs-inner">
+      <div class="section-label">ТЕХНИЧЕСКИЕ ДАННЫЕ</div>
+      <h2 class="specs-title">Паспорт<br>изделия</h2>
+      <div class="specs-table">
+        <div class="spec-row">
+          <div class="spec-param">Конструктивный материал</div>
+          <div class="spec-val">Алюминиевый профиль 40×40 / 40×80 мм</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Перемещение по оси Z</div>
+          <div class="spec-val">до 400 мм</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Система привода</div>
+          <div class="spec-val">Шарико-винтовая пара (ШВП) + шаговый двигатель</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Кабельный канал</div>
+          <div class="spec-val">Igus Energy Chain, шаг 25 мм</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Контроллер</div>
+          <div class="spec-val">ПЛК, язык программирования IEC 61131-3</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Рабочее напряжение</div>
+          <div class="spec-val">24 В DC</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Интерфейсы связи</div>
+          <div class="spec-val">RS-232, USB, цифровые I/O</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Исполнительный орган</div>
+          <div class="spec-val">Лазерный маркиратор (волоконный)</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Монтаж</div>
+          <div class="spec-val">Стационарный, на алюминиевой плите-основании</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-param">Уровень автономности</div>
+          <div class="spec-val">Полностью автоматический рабочий цикл</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-title">АС-1</div>
+        <div class="footer-sub">Автоматизированная Станция Маркировки</div>
+      </div>
+      <div class="footer-center">
+        <div class="footer-label">ДИПЛОМНЫЙ ПРОЕКТ</div>
+        <div class="footer-year">2025</div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-label">КАФЕДРА АВТОМАТИЗАЦИИ</div>
+        <div class="footer-dept">Разработка и защита</div>
+      </div>
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-copy">Все права защищены. Данный ресурс создан в академических целях.</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
