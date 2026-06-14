@@ -1,6 +1,4 @@
-/* =============================================
-   BASE & VARIABLES
-   ============================================= */
+
 :root {
   --bg: #0a0a0a;
   --bg2: #111111;
@@ -33,9 +31,7 @@ body {
   overflow-x: hidden;
 }
 
-/* =============================================
-   NOISE & GRID
-   ============================================= */
+
 .noise {
   position: fixed;
   inset: 0;
@@ -56,9 +52,7 @@ body {
   z-index: 0;
 }
 
-/* =============================================
-   HERO
-   ============================================= */
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -89,7 +83,7 @@ body {
   background: var(--accent);
 }
 
-/* main row: text left, image right */
+
 .hero-main {
   flex: 1;
   display: grid;
@@ -189,9 +183,7 @@ body {
   margin-right: 28px;
 }
 
-/* =============================================
-   HERO IMAGE
-   ============================================= */
+
 .hero-img-wrap {
   position: relative;
   display: flex;
@@ -259,9 +251,7 @@ body {
 .img-corner.bl { bottom: 16px; left: 16px; border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
 .img-corner.br { bottom: 16px; right: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
 
-/* =============================================
-   HOTSPOTS
-   ============================================= */
+
 .hotspot {
   position: absolute;
   width: 32px;
@@ -307,9 +297,7 @@ body {
   box-shadow: 0 0 24px var(--accent);
 }
 
-/* =============================================
-   TOOLTIP CARD
-   ============================================= */
+
 .tooltip-card {
   position: fixed;
   right: 40px;
@@ -342,7 +330,6 @@ body {
   line-height: 1;
   transition: color 0.2s;
   padding: 8px;
-  /* large tap target */
   min-width: 40px;
   min-height: 40px;
   display: flex;
@@ -401,9 +388,6 @@ body {
   flex-shrink: 0;
 }
 
-/* =============================================
-   SCROLL HINT
-   ============================================= */
 .scroll-hint {
   display: flex;
   align-items: center;
@@ -449,9 +433,7 @@ body {
   100% { left: 100%; }
 }
 
-/* =============================================
-   SECTION LABEL
-   ============================================= */
+
 .section-label {
   font-family: var(--mono);
   font-size: 10px;
@@ -471,9 +453,7 @@ body {
   background: var(--accent);
 }
 
-/* =============================================
-   ABOUT SECTION
-   ============================================= */
+
 .about {
   position: relative;
   display: grid;
@@ -597,9 +577,7 @@ body {
   line-height: 1.5;
 }
 
-/* =============================================
-   COMPONENTS SECTION
-   ============================================= */
+
 .components {
   position: relative;
   padding: 120px 5vw;
@@ -706,9 +684,7 @@ body {
   display: none;
 }
 
-/* =============================================
-   SPECS SECTION
-   ============================================= */
+
 .specs {
   position: relative;
   padding: 120px 5vw;
@@ -797,9 +773,7 @@ body {
   z-index: 1;
 }
 
-/* =============================================
-   FOOTER
-   ============================================= */
+
 .footer {
   position: relative;
   padding: 64px 5vw 40px;
@@ -866,9 +840,7 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* =============================================
-   SCROLL ANIMATIONS
-   ============================================= */
+
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -880,9 +852,7 @@ body {
   transform: translateY(0);
 }
 
-/* =============================================
-   RESPONSIVE — TABLET (≤ 1024px)
-   ============================================= */
+
 @media (max-width: 1024px) {
   .hero-title {
     font-size: clamp(64px, 8vw, 110px);
@@ -907,12 +877,10 @@ body {
   }
 }
 
-/* =============================================
-   RESPONSIVE — SMALL TABLET / LARGE PHONE (≤ 900px)
-   ============================================= */
+
 @media (max-width: 900px) {
 
-  /* — Hero — */
+  
   .hero {
     padding: 0 5vw;
     min-height: auto;
@@ -960,13 +928,13 @@ body {
     display: none;
   }
 
-  /* — Image frame — */
+  
   .img-frame {
     max-width: 100%;
     aspect-ratio: 4/5;
   }
 
-  /* — Tooltip: slide up from bottom on mobile — */
+  
   .tooltip-card {
     right: 0;
     left: 0;
@@ -986,7 +954,7 @@ body {
     transform: translateY(0);
   }
 
-  /* — About — */
+ 
   .about {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1010,7 +978,7 @@ body {
     padding: 24px 20px;
   }
 
-  /* — Components — */
+  
   .components {
     padding: 72px 5vw;
   }
@@ -1033,7 +1001,7 @@ body {
   .comp-card:nth-child(3n) .comp-line { display: block; }
   .comp-card:nth-child(odd):last-child { grid-column: 1 / -1; }
 
-  /* — Specs — */
+  
   .specs {
     padding: 72px 5vw;
   }
@@ -1059,7 +1027,7 @@ body {
     padding-left: 4px;
   }
 
-  /* — Footer — */
+ 
   .footer {
     padding: 48px 5vw 32px;
   }
@@ -1074,12 +1042,10 @@ body {
   }
 }
 
-/* =============================================
-   RESPONSIVE — PHONE (≤ 600px)
-   ============================================= */
+
 @media (max-width: 600px) {
 
-  /* — Hero — */
+ 
   .hero {
     padding: 0 4vw;
   }
@@ -1116,7 +1082,7 @@ body {
     height: 28px;
   }
 
-  /* — Image — */
+  
   .img-frame {
     aspect-ratio: 3/4;
   }
@@ -1126,7 +1092,7 @@ body {
     height: 14px;
   }
 
-  /* Hotspot dots slightly bigger for finger taps */
+  
   .hotspot {
     width: 44px;
     height: 44px;
@@ -1143,7 +1109,7 @@ body {
     height: 36px;
   }
 
-  /* — About — */
+  
   .about {
     padding: 56px 4vw;
     gap: 32px;
@@ -1178,7 +1144,7 @@ body {
     font-size: 10px;
   }
 
-  /* — Components — */
+  
   .components {
     padding: 56px 4vw;
   }
@@ -1198,7 +1164,7 @@ body {
     grid-column: auto;
   }
 
-  /* — Specs — */
+  
   .specs {
     padding: 56px 4vw;
   }
@@ -1208,7 +1174,7 @@ body {
     margin-bottom: 36px;
   }
 
-  /* — Footer — */
+ 
   .footer {
     padding: 40px 4vw 28px;
   }
@@ -1230,16 +1196,14 @@ body {
     font-size: 9px;
   }
 
-  /* — Section labels — */
+  
   .section-label {
     font-size: 9px;
     letter-spacing: 0.2em;
   }
 }
 
-/* =============================================
-   RESPONSIVE — TINY PHONE (≤ 380px)
-   ============================================= */
+
 @media (max-width: 380px) {
   .hero-title {
     font-size: clamp(42px, 13vw, 64px);
@@ -1254,9 +1218,7 @@ body {
   }
 }
 
-/* =============================================
-   TOUCH DEVICE — remove hover-only effects
-   ============================================= */
+
 @media (hover: none) {
   .comp-card:hover {
     background: var(--surface);
@@ -1278,7 +1240,7 @@ body {
     filter: contrast(1.08) brightness(0.9) saturate(0.7);
   }
 
-  /* Tap feedback instead */
+  
   .comp-card:active {
     background: #1c1c1c;
   }
