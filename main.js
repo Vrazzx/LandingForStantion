@@ -1,12 +1,8 @@
-/* ==============================================
-   СТАНЦИЯ АС-1 — MAIN.JS
-   ============================================== */
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ——————————————————————————————
-     HERO TEXT REVEAL
-  —————————————————————————————— */
+
   const lines = document.querySelectorAll('.line-inner');
   setTimeout(() => {
     lines.forEach((line, i) => {
@@ -17,9 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 200);
 
-  /* ——————————————————————————————
-     HOTSPOT DATA
-  —————————————————————————————— */
+
   const hotspotData = {
     1: {
       num: '01',
@@ -53,9 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  /* ——————————————————————————————
-     HOTSPOT INTERACTIONS
-  —————————————————————————————— */
+
   const card = document.getElementById('tooltipCard');
   const tcNum = document.getElementById('tcNum');
   const tcTitle = document.getElementById('tcTitle');
@@ -79,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       activeHotspot = id;
 
-      // Remove active from all hotspots
+     
       document.querySelectorAll('.hotspot').forEach(h => h.style.setProperty('--active', '0'));
       hs.style.setProperty('--active', '1');
       hs.querySelector('.hs-dot').style.background = '#3af0c0';
@@ -120,9 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ——————————————————————————————
-     SCROLL REVEAL
-  —————————————————————————————— */
+
   const revealEls = document.querySelectorAll('.about-title, .about-text, .cta-btn, .comp-title, .comp-card, .spec-row, .specs-title, .footer-title, .footer-year, .footer-dept');
 
   revealEls.forEach(el => {
@@ -145,9 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  /* ——————————————————————————————
-     STAT COUNTER ANIMATION
-  —————————————————————————————— */
+
   const statBlocks = document.querySelectorAll('.stat-block');
   statBlocks.forEach((block, i) => {
     block.style.setProperty('--i', i);
@@ -182,10 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   statBlocks.forEach(block => counterObserver.observe(block));
 
-  /* ——————————————————————————————
-     SUBTLE PARALLAX ON HERO IMAGE
-     (desktop / mouse only)
-  —————————————————————————————— */
+
   const heroImg = document.querySelector('.hero-img');
   const isTouch = window.matchMedia('(hover: none)').matches;
 
@@ -205,14 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Ensure hotspots respond instantly to taps */
+ 
   document.querySelectorAll('.hotspot').forEach(hs => {
     hs.style.touchAction = 'manipulation';
   });
 
-  /* ——————————————————————————————
-     COMP CARD STAGGER
-  —————————————————————————————— */
+
   const compCards = document.querySelectorAll('.comp-card');
   const compObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -235,9 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     compObserver.observe(card);
   });
 
-  /* ——————————————————————————————
-     SPEC ROW STAGGER
-  —————————————————————————————— */
+
   const specRows = document.querySelectorAll('.spec-row');
   const specObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -260,9 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     specObserver.observe(row);
   });
 
-  /* ——————————————————————————————
-     SECTION LABEL REVEAL
-  —————————————————————————————— */
+
   const sectionLabels = document.querySelectorAll('.section-label');
   const labelObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -281,9 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     labelObserver.observe(label);
   });
 
-  /* ——————————————————————————————
-     GLITCH EFFECT ON HERO TITLE (subtle)
-  —————————————————————————————— */
+
   const heroTitle = document.querySelector('.hero-title');
   if (heroTitle) {
     let glitchInterval = null;
@@ -303,15 +280,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 80);
     };
 
-    // Trigger glitch occasionally
+    
     setInterval(() => {
       if (Math.random() > 0.65) startGlitch();
     }, 4500);
   }
 
-  /* ——————————————————————————————
-     SMOOTH ANCHOR SCROLL
-  —————————————————————————————— */
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -322,13 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ——————————————————————————————
-     IMAGE LOAD GUARD
-  —————————————————————————————— */
+
   const stationImg = document.getElementById('stationImg');
   if (stationImg) {
     stationImg.addEventListener('error', () => {
-      // Fallback if image not found
+      
       stationImg.closest('.img-frame').style.background = '#1a1a1a';
     });
   }
